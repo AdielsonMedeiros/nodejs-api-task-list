@@ -6,6 +6,7 @@ import SessionController from './app/controllers/SessionController';
 
 const routes = new Router();
 import authMiddleware from './app/middlewares/auth';
+import TaskController from "./app/controllers/TaskController";
 
 routes.post('/users', UserController.store);
 
@@ -15,6 +16,9 @@ routes.post('/sessions', SessionController.store);
 routes.use(authMiddleware);
 
 routes.put('/users', UserController.update);
+
+routes.post('/tasks', TaskController.store);
+routes.get('/tasks', TaskController.index);
 
 
 
